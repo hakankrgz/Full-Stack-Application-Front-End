@@ -1,6 +1,6 @@
 import { Button, FormControl, FormHelperText, Input, InputLabel } from "@mui/material";
 import React, { useState } from "react";
-import { PostWithAuth, PostWithoutAuth } from "../../services/HttpService";
+import {PostWithoutAuth} from "../../services/HttpService";
 
 function Auth(){
 
@@ -20,7 +20,8 @@ function Auth(){
             password:password,
         })
         .then((res)=>res.json())
-        .then((result)=>{localStorage.setItem("tokenKey",result.message);
+        .then((result)=>{localStorage.setItem("tokenKey",result.accessToken);
+                        localStorage.setItem("refreshKey",result.refreshToken);
                         localStorage.setItem("currentUser",result.userId);
                         localStorage.setItem("userName",username)})
         .catch((err)=>console.log(err))

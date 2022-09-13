@@ -23,6 +23,13 @@ var typTitle={
   flex: 1, 
 }
 
+var container={
+  maxHeight: 440,
+  minWidth: 100,
+  maxWidth: 800,
+  marginTop: 50,
+}
+
 function PopUp(props) {
   const {isOpen, postId, setIsOpen} = props;
   const [open, setOpen] = useState(isOpen); 
@@ -112,7 +119,7 @@ useEffect(() => {
     <div>
     {isOpen? <PopUp isOpen={isOpen} postId={selectedPost} setIsOpen={setIsOpen}/>: ""}
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-      <TableContainer sx={{ maxHeight: 440 }}>
+      <TableContainer style={container} sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>

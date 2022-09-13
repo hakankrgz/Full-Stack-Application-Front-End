@@ -21,6 +21,7 @@ function Navbar() {
     const onClick=()=>{
         localStorage.removeItem("tokenKey")
         localStorage.removeItem("currentUser")
+        localStorage.removeItem("refreshKey")
         localStorage.removeItem("userName")
         window.history.go(0)
     }
