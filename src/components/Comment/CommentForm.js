@@ -24,7 +24,7 @@ function CommentForm(props){
     const saveComment = () => {
         PostWithAuth("/comments",{
             postId: postId, 
-            userId : userId,
+            userId : localStorage.getItem("currentUser"),
             text : text,
           })
           .then((res) => {
@@ -37,8 +37,9 @@ function CommentForm(props){
                 }})
                 .then((result) => {
                     console.log(result)
-                    if(result != undefined){ 
+                    if(result !== undefined){ 
                         localStorage.setItem("tokenKey",result.accessToken);
+                        localStorage.setItem("refreshKey",result.RefreshToken);
                         saveComment();
                         setCommentRefresh();
                     }})
