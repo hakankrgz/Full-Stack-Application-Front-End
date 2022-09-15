@@ -1,0 +1,5 @@
+{
+    "rewrites":[
+        {"sourve": "/api/:path*" }
+    ]
+}
